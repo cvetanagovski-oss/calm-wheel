@@ -1,0 +1,122 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap');
+
+:root {
+  --bg-1: #0b1016;
+  --bg-2: #151c26;
+  --ring: #2c3b4d;
+  --ring-2: #1a2533;
+  --accent: #ffb347;
+  --accent-2: #ff7a59;
+  --text: #e8eef5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(800px 500px at 20% 20%, #1b2431 0%, transparent 60%),
+    radial-gradient(700px 600px at 80% 70%, #121a25 0%, transparent 65%),
+    linear-gradient(160deg, var(--bg-1), var(--bg-2));
+  font-family: "Rubik", sans-serif;
+  color: var(--text);
+}
+
+.wheel-wrap {
+  display: grid;
+  gap: 18px;
+  justify-items: center;
+  text-align: center;
+}
+
+.wheel {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  position: relative;
+  cursor: grab;
+  touch-action: none;
+  background:
+    conic-gradient(
+      from 0deg,
+      #2b3848 0deg 12deg,
+      #1d2835 12deg 24deg,
+      #2b3848 24deg 36deg,
+      #1d2835 36deg 48deg,
+      #2b3848 48deg 60deg,
+      #1d2835 60deg 72deg,
+      #2b3848 72deg 84deg,
+      #1d2835 84deg 96deg,
+      #2b3848 96deg 108deg,
+      #1d2835 108deg 120deg,
+      #2b3848 120deg 132deg,
+      #1d2835 132deg 144deg,
+      #2b3848 144deg 156deg,
+      #1d2835 156deg 168deg,
+      #2b3848 168deg 180deg,
+      #1d2835 180deg 192deg,
+      #2b3848 192deg 204deg,
+      #1d2835 204deg 216deg,
+      #2b3848 216deg 228deg,
+      #1d2835 228deg 240deg,
+      #2b3848 240deg 252deg,
+      #1d2835 252deg 264deg,
+      #2b3848 264deg 276deg,
+      #1d2835 276deg 288deg,
+      #2b3848 288deg 300deg,
+      #1d2835 300deg 312deg,
+      #2b3848 312deg 324deg,
+      #1d2835 324deg 336deg,
+      #2b3848 336deg 348deg,
+      #1d2835 348deg 360deg
+    );
+  border: 10px solid var(--ring);
+  box-shadow:
+    inset 0 0 0 10px var(--ring-2),
+    0 24px 60px rgba(0, 0, 0, 0.45);
+  transition: transform 0.06s ease;
+}
+
+.wheel::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #3a4b60, #1b2533 70%);
+  box-shadow: inset 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.wheel::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent), var(--accent-2));
+  box-shadow: 0 0 14px rgba(255, 154, 88, 0.7);
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.wheel:active {
+  cursor: grabbing;
+}
+
+.hint {
+  max-width: 260px;
+  font-size: 14px;
+  color: rgba(232, 238, 245, 0.72);
+}
+
+@media (max-width: 520px) {
+  .wheel {
+    width: 220px;
+    height: 220px;
+  }
+}
