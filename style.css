@@ -34,6 +34,45 @@ body {
   text-align: center;
 }
 
+.counter {
+  display: grid;
+  place-items: center;
+  padding: 14px 18px;
+  border-radius: 16px;
+  background: rgba(9, 14, 20, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  min-width: 220px;
+  gap: 6px;
+}
+
+.counter-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  text-shadow: 0 0 12px rgba(255, 179, 71, 0.4);
+}
+
+.clicker-symbol {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  fill: none;
+  opacity: 0.9;
+}
+
+.counter-name {
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(232, 238, 245, 0.7);
+}
+
 .wheel {
   width: 260px;
   height: 260px;

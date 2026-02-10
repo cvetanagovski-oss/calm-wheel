@@ -1,4 +1,5 @@
-﻿const wheel = document.getElementById("wheel");
+const wheel = document.getElementById("wheel");
+const clickerValue = document.getElementById("clickerValue");
 
 let isDragging = false;
 let angle = 0;
@@ -6,6 +7,7 @@ let lastPointerAngle = 0;
 let lastTime = 0;
 let velocity = 0;
 let inertiaId = null;
+let clickCount = 0;
 
 const tickAngle = Math.PI / 12; // 15 degrees
 let tickAccumulator = 0;
@@ -59,6 +61,8 @@ function emitTicks(delta) {
   const step = tickAccumulator > 0 ? 1 : -1;
   while (Math.abs(tickAccumulator) >= tickAngle) {
     clickSound();
+    clickCount += 1;
+    clickerValue.textContent = String(clickCount);
     tickAccumulator -= step * tickAngle;
   }
 }
